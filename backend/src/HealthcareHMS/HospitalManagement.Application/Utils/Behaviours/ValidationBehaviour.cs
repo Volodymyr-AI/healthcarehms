@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 
-namespace HospitalManagement.Application.Behaviours
+namespace HospitalManagement.Application.Utils.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse>
         : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
@@ -21,7 +21,7 @@ namespace HospitalManagement.Application.Behaviours
                 .SelectMany(result => result.Errors)
                 .Where(failure => failure != null)
                 .ToList();
-            if(failures.Count != 0)
+            if (failures.Count != 0)
             {
                 throw new ValidationException(failures);
             }

@@ -1,5 +1,5 @@
 ﻿using Hospital.Persistance.Configuration;
-using HospitalManagement.Application.Interfaces;
+using HospitalManagement.Application.Utils.Interfaces;
 using HospitalManagement.Core;
 using Microsoft.EntityFrameworkCore;
 

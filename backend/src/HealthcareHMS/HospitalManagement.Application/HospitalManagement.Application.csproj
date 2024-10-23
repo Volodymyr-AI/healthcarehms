@@ -20,7 +20,6 @@
     <Folder Include="Doctors\Commands\UpdateDoctorInfo\" />
     <Folder Include="Doctors\Queries\GetDoctorInfo\" />
     <Folder Include="Doctors\Queries\GetDoctorList\" />
-    <Folder Include="Hospitals\" />
   </ItemGroup>
 
 </Project>

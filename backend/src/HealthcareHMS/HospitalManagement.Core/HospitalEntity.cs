@@ -13,7 +13,7 @@ namespace HospitalManagement.Core
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public List<DateTime> WorkingHours { get; set; }
+        public List<WorkingHoursEntity> WorkingHours { get; set; }
         public bool AddGoogleMyBusiness { get; set; }
         public bool EmergencyServicesIsAvaliable { get; set; }
         public string FacilitiesAvailable { get; set; }

@@ -1,7 +1,7 @@
 ﻿using HospitalManagement.Core;
 using Microsoft.EntityFrameworkCore;
 
-namespace HospitalManagement.Application.Interfaces
+namespace HospitalManagement.Application.Utils.Interfaces
 {
     public interface IHospitalDbContext : IDisposable
     {
