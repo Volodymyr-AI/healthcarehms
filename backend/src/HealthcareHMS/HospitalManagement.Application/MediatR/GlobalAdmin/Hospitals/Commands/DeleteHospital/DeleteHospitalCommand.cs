@@ -5,5 +5,6 @@ namespace HospitalManagement.Application.MediatR.GlobalAdmin.Hospitals.Commands.
     public class DeleteHospitalCommand : IRequest<Unit>
     {
         public Guid HospitalId { get; set; }
+        public Guid GlobalAdminId { get; set; }
     }
 }

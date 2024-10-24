@@ -16,10 +16,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Doctors\Commands\DeleteDoctorInfo\" />
-    <Folder Include="Doctors\Commands\UpdateDoctorInfo\" />
-    <Folder Include="Doctors\Queries\GetDoctorInfo\" />
-    <Folder Include="Doctors\Queries\GetDoctorList\" />
+    <Folder Include="MediatR\General\Hospitals\Queries\" />
+    <Folder Include="MediatR\GlobalAdmin\Doctors\Commands\DeleteDoctorInfo\" />
+    <Folder Include="MediatR\GlobalAdmin\Doctors\Commands\UpdateDoctorInfo\" />
+    <Folder Include="MediatR\GlobalAdmin\Doctors\Queries\GetDoctorInfo\" />
+    <Folder Include="MediatR\GlobalAdmin\Doctors\Queries\GetDoctorList\" />
+    <Folder Include="MediatR\GlobalAdmin\HospitalAdmin\" />
+    <Folder Include="MediatR\GlobalAdmin\Hospitals\Queries\" />
   </ItemGroup>
 
 </Project>

@@ -14,15 +14,15 @@ namespace HospitalManagement.Application.MediatR.GlobalAdmin.Hospitals.Commands.
 
         public async Task<Unit> Handle(DeleteHospitalCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _dbContext.Hospitals
+            var hospital = await _dbContext.Hospitals
                 .FindAsync(new object[] { request.HospitalId }, cancellationToken);
 
-            if (entity == null || entity.Id != request.HospitalId)
+            if (hospital == null || hospital.GlobalAdminId != request.GlobalAdminId)
             {
                 throw new NotFoundException(nameof(HospitalEntity), request.HospitalId);
             }
 
-            _dbContext.Hospitals.Remove(entity);
+            _dbContext.Hospitals.Remove(hospital);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
