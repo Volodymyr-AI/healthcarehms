@@ -3,6 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{15D63BE2-84D6-49A7-B469-48E0BB044217}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{AE587814-6459-4961-82B6-1BF456100AD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{96A2002D-5F5B-4329-BDC4-2AB3FEA58EB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E807FF9E-DF5F-4B01-86A0-F9E9798ED1EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthcareHMS.Core", "HealthcareHMS.Core\HealthcareHMS.Core.csproj", "{F862742D-49E6-4842-8C60-74C24677A8E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthcareHMS.Persistence", "HealthcareHMS.Persistence\HealthcareHMS.Persistence.csproj", "{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +22,19 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F862742D-49E6-4842-8C60-74C24677A8E8} = {AE587814-6459-4961-82B6-1BF456100AD9}
+		{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5} = {E807FF9E-DF5F-4B01-86A0-F9E9798ED1EC}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F862742D-49E6-4842-8C60-74C24677A8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F862742D-49E6-4842-8C60-74C24677A8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F862742D-49E6-4842-8C60-74C24677A8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F862742D-49E6-4842-8C60-74C24677A8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
