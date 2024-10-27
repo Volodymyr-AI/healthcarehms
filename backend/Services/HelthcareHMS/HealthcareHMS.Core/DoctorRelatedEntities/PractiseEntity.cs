@@ -2,7 +2,7 @@
 
 public class PractiseEntity
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public Guid DoctorId { get; set; }
     public string Practise { get; set; }
     

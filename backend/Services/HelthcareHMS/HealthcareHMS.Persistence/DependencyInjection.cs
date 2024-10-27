@@ -12,7 +12,7 @@ public static class DependencyInjection
         var connectionString = configuration.GetConnectionString("HealthcareHMSConnection");
         services.AddDbContext<HealthcareHMSDbContext>(options =>
         {
-            options.UseSqlServer(connectionString);
+            options.UseSqlite(connectionString);
         });
         services.AddScoped<IHealthcareHMSDbContext>(provider => 
             provider.GetService<HealthcareHMSDbContext>());
