@@ -1,4 +1,5 @@
 
+using HealthcareHMS.Application;
 using HealthcareHMS.Persistence;
 
 namespace HealthcareHMS.API
@@ -11,7 +12,7 @@ namespace HealthcareHMS.API
             
             // Add DI for DbContext and Persistence layer
             builder.Services.AddPersistence(builder.Configuration);
-
+            builder.Services.AddApplication();
             // Add services to the container.
             builder.Services.AddControllers();
             
