@@ -1,10 +1,10 @@
 ﻿namespace HealthcareHMS.Core;
 
-public class PractiseEntity
+public class CertificationEntity
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public Guid DoctorId { get; set; }
-    public string Practice { get; set; }
+    public string Certification { get; set; }
     
     public DoctorEntity Doctor { get; set; }
 }

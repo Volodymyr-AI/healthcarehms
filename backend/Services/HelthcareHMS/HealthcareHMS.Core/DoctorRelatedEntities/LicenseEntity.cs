@@ -1,10 +1,10 @@
 ﻿namespace HealthcareHMS.Core;
 
-public class ServiceProvidedEntity
+public class LicenseEntity
 {
-    public Guid Id { get; set; }
+    public int Id { get; set; }
     public Guid DoctorId { get; set; }
-    public string ServiceName { get; set; }
+    public string License { get; set; }
     
     public DoctorEntity Doctor { get; set; }    
 }

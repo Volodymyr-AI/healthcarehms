@@ -28,7 +28,24 @@ public class HospitalConfiguration : IEntityTypeConfiguration<HospitalEntity>
             .WithOne(d => d.Hospital)
             .HasForeignKey(d => d.HospitalId)
             .OnDelete(DeleteBehavior.Cascade); // Cascade delete doctors if the hospital is deleted
+        
+        /*
+         * One-to-Many relationships for PhoneNumbers, FacilitiesAvailable, and ServicesProvided
+         */
+        builder.HasMany(h => h.PhoneNumbers)
+            .WithOne(p => p.Hospital)
+            .HasForeignKey(p => p.HospitalId)
+            .OnDelete(DeleteBehavior.Cascade);
 
+        builder.HasMany(h => h.HospitalFacilities)
+            .WithOne(f => f.Hospital)
+            .HasForeignKey(f => f.HospitalId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(h => h.HospitalServices)
+            .WithOne(s => s.Hospital)
+            .HasForeignKey(s => s.HospitalId)
+            .OnDelete(DeleteBehavior.Cascade);
         /*
          * Additional restrictions
         **/
@@ -43,19 +60,7 @@ public class HospitalConfiguration : IEntityTypeConfiguration<HospitalEntity>
         builder.Property(h => h.Email)
             .IsRequired()
             .HasMaxLength(100);
-
-        builder.Property(h => h.PhoneNumbers)
-            .HasConversion(
-                v => string.Join(";", v),// Save list of phonenumbers as a string
-                v => v.Split(new[] { ';' }, StringSplitOptions.None).ToList());// Back to list
-
-
-        builder.Property(h => h.FacilitiesAvailable)
-            .HasMaxLength(500);
-
-        builder.Property(h => h.ServicesProvided)
-            .HasMaxLength(500);
-
+        
         // Connection with a global admin 
         builder.Property(h => h.GlobalAdminId)
             .IsRequired();

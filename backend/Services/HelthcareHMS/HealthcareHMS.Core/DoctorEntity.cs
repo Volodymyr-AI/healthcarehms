@@ -14,7 +14,7 @@ public class DoctorEntity
     public ICollection<ConditionTreatedEntity> Conditions { get; set; }
 
     public ICollection<PractiseEntity> Practises { get; set; }
-    public ICollection<ServiceProvidedEntity> ServiceProvided { get; set; }
+    public ICollection<ServiceProvidedEntity> ServicesProvided { get; set; }
     public bool Appointment_Availability { get; set; }
 
 //Auth
