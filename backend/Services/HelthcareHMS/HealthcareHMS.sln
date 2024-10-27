@@ -11,24 +11,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E807FF9E-DF5F-4B01-86A0-F9E9798ED1EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthcareHMS.Core", "HealthcareHMS.Core\HealthcareHMS.Core.csproj", "{F862742D-49E6-4842-8C60-74C24677A8E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthcareHMS.Core", "HealthcareHMS.Core\HealthcareHMS.Core.csproj", "{F862742D-49E6-4842-8C60-74C24677A8E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthcareHMS.Persistence", "HealthcareHMS.Persistence\HealthcareHMS.Persistence.csproj", "{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthcareHMS.Persistence", "HealthcareHMS.Persistence\HealthcareHMS.Persistence.csproj", "{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthcareHMS.Application", "HealthcareHMS.Application\HealthcareHMS.Application.csproj", "{CE53CACC-B3F8-48EB-BAF8-D93DE467131B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthcareHMS.Application", "HealthcareHMS.Application\HealthcareHMS.Application.csproj", "{CE53CACC-B3F8-48EB-BAF8-D93DE467131B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthcareHMS.API", "HealthcareHMS.API\HealthcareHMS.API.csproj", "{971A7FB9-8FED-4971-8C98-E23A8A17D279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F862742D-49E6-4842-8C60-74C24677A8E8} = {AE587814-6459-4961-82B6-1BF456100AD9}
-		{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5} = {E807FF9E-DF5F-4B01-86A0-F9E9798ED1EC}
-		{CE53CACC-B3F8-48EB-BAF8-D93DE467131B} = {AE587814-6459-4961-82B6-1BF456100AD9}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F862742D-49E6-4842-8C60-74C24677A8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -43,5 +37,21 @@ Global
 		{CE53CACC-B3F8-48EB-BAF8-D93DE467131B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE53CACC-B3F8-48EB-BAF8-D93DE467131B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE53CACC-B3F8-48EB-BAF8-D93DE467131B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971A7FB9-8FED-4971-8C98-E23A8A17D279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971A7FB9-8FED-4971-8C98-E23A8A17D279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971A7FB9-8FED-4971-8C98-E23A8A17D279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971A7FB9-8FED-4971-8C98-E23A8A17D279}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F862742D-49E6-4842-8C60-74C24677A8E8} = {AE587814-6459-4961-82B6-1BF456100AD9}
+		{8DC510C0-08EB-4D1C-B5C3-69E377AABBD5} = {E807FF9E-DF5F-4B01-86A0-F9E9798ED1EC}
+		{CE53CACC-B3F8-48EB-BAF8-D93DE467131B} = {AE587814-6459-4961-82B6-1BF456100AD9}
+		{971A7FB9-8FED-4971-8C98-E23A8A17D279} = {96A2002D-5F5B-4329-BDC4-2AB3FEA58EB0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A9F9638-1F0A-4543-A6B6-801819150226}
 	EndGlobalSection
 EndGlobal
