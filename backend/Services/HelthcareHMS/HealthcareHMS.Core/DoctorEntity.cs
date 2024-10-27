@@ -7,14 +7,14 @@ public class DoctorEntity
     public string Specialization { get; set; }
     public string Bio { get; set; }
     public int YearsOfExperience { get; set; }
-    public List<string> Licenses { get; set; }
-    public List<string> Certifications { get; set; }
+    public ICollection<LicenseEntity> Licenses { get; set; }
+    public ICollection<CertificationEntity> Certifications { get; set; }
 
     public string MedicalSchool { get; set; }
-    public List<string> ConditionsTreated { get; set; }
+    public ICollection<ConditionTreatedEntity> Conditions { get; set; }
 
-    public List<string> Practices { get; set; }
-    public List<string> Services_Provided { get; set; }
+    public ICollection<PractiseEntity> Practises { get; set; }
+    public ICollection<ServiceProvidedEntity> ServiceProvided { get; set; }
     public bool Appointment_Availability { get; set; }
 
 //Auth
