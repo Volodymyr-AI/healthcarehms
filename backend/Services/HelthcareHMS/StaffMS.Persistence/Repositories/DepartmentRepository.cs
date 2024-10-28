@@ -35,7 +35,7 @@ public class DepartmentRepository : IDepartmentRepository
         await _dbContext.Departments.AddAsync(entity);
     }
 
-    public async Task SaveChangesAsync(DepartmentEntity entity)
+    public async Task SaveChangesAsync(DepartmentEntity entity, CancellationToken cancellationToken)
     {
         await _dbContext.SaveChangesAsync();
     }

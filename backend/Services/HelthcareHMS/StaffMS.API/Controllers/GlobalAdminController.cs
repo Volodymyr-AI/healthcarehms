@@ -1,22 +1,31 @@
-﻿using StaffMS.Application.Utils.Interfaces.Repositories;
+﻿using AutoMapper;
+using StaffMS.Application.Utils.Interfaces.Repositories;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using StaffMS.Application.MediatR.GlobalAdmin.Department.Commands.Create;
+using StaffMS.Persistence.DTOs;
 
 namespace HealthcareHMS.API.Controllers;
 
-//[ApiVersion("2.0")]
-//[ApiVersionNeutral] // so controller will work no paying attention to the version
+[ApiController]
+//[Authorize(Roles = "GlobalAdmin")]
 [Produces("applivation/json")]
-[Route("api/{version:apiVersion}/[controller]")]
+[Route("api/[controller]")]
 public class GlobalAdminController : BaseController
 {
-    private readonly IDepartmentRepository _departmentRepository;
-    private readonly IMediator _mediator;
-    
+    private readonly IMapper _mapper;
 
-    public GlobalAdminController(IDepartmentRepository departmentRepository, IMediator mediator)
+    public GlobalAdminController(IMapper mapper)
     {
-        _departmentRepository = departmentRepository;
-        _mediator = mediator;
+        _mapper = mapper;
+    }
+
+    [HttpPost("create-department")]
+    public async Task<IActionResult> CreateDepartment([FromBody] CreateDepartmentDto departmentDto)
+    {
+        var command = _mapper.Map<CreateDepartmentCommand>(departmentDto);
+        var result = await Mediator.Send(command);
+        return CreatedAtAction(nameof(CreateDepartment), new { id = result.Id }, result);
     }
 }

@@ -2,7 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StaffMS.Application.Utils.Interfaces.Repositories;
+using StaffMS.Core;
 using StaffMS.Persistence;
+using StaffMS.Persistence.Repositories;
 
 namespace StaffMS.Persistence;
 
@@ -17,6 +20,7 @@ public static class DependencyInjection
         });
         services.AddScoped<IStaffMSDbContext>(provider => 
             provider.GetService<StaffMSDbContext>());
+        services.AddTransient<IDepartmentRepository, DepartmentRepository>();
         return services;
     }
 }

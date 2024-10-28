@@ -1,6 +1,10 @@
 
 using StaffMS.Application;
+using StaffMS.Application.Utils.Interfaces.Infrastructure;
+using StaffMS.Application.Utils.Mapping;
 using StaffMS.Persistence;
+using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace StaffMS.API
 {
@@ -10,27 +14,68 @@ namespace StaffMS.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add DI for DbContext and Persistence layer
-            object value = builder.Services.AddPersistence(builder.Configuration);
+            builder.Services.AddPersistence(builder.Configuration);
             builder.Services.AddApplication();
-            // Add services to the container.
+
             builder.Services.AddControllers();
+
+            builder.Services.AddAutoMapper(
+                Assembly.GetExecutingAssembly(),
+                typeof(IStaffMSDbContext).Assembly
+            );
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyHeader();
+                    policy.AllowAnyMethod();
+                    policy.AllowAnyOrigin();
+                });
+            });
             
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            //builder.Services.AddAuthentication(config =>
+            //    {
+            //        config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //        config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    })
+            //    .AddJwtBearer("Bearer", options =>
+            //    {
+            //        options.Authority = "https://localhost:5000/";
+            //        options.Audience = "StaffMSAPI";
+            //        options.RequireHttpsMetadata = false;
+            //    });
+
+             
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            using (var scope = app.Services.CreateScope())
+            {
+                var serviceProvider = scope.ServiceProvider;
+                try
+                {
+                    var context = serviceProvider.GetRequiredService<StaffMSDbContext>();
+                    DbInitializer.Initialize(context); 
+                }
+                catch (Exception ex)
+                {
+                    
+                }
+            }
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
 
+            app.UseCors("AllowAll");
             app.UseAuthorization();
-
+            app.UseAuthorization();
 
             app.MapControllers();
 

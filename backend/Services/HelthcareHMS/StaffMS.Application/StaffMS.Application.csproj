@@ -21,7 +21,6 @@
 
     <ItemGroup>
       <Folder Include="MediatR\General\" />
-      <Folder Include="MediatR\GlobalAdmin\Department\Commands\Create\" />
     </ItemGroup>
 
 </Project>
