@@ -24,8 +24,8 @@ public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCo
             Address = request.Address
         };
         
-        await _departmentRepository.AddAsync(newDepartment);
-        await _departmentRepository.SaveChangesAsync(newDepartment, cancellationToken);
+        await _departmentRepository.AddAsync(newDepartment, cancellationToken);
+        await _departmentRepository.SaveChangesAsync(cancellationToken);
         
         return newDepartment;
     }

@@ -24,7 +24,7 @@ public class GlobalAdminController : BaseController
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<ActionResult<DepartmentEntity>> CreateDepartment([FromBody] CreateDepartmentCommand department)
     {
-        var result = await Mediator.Send(department);
+        var result = await Mediator.Send(department );
         return Ok(result);
     }
 }

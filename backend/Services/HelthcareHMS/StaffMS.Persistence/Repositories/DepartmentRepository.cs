@@ -30,14 +30,14 @@ public class DepartmentRepository : IDepartmentRepository
         return await _dbContext.Departments.ToListAsync(); 
     }
 
-    public async Task AddAsync(DepartmentEntity entity)
+    public async Task AddAsync(DepartmentEntity entity, CancellationToken cancellationToken)
     {
-        await _dbContext.Departments.AddAsync(entity);
+        await _dbContext.Departments.AddAsync(entity, cancellationToken);
     }
 
-    public async Task SaveChangesAsync(DepartmentEntity entity, CancellationToken cancellationToken)
+    public async Task SaveChangesAsync(CancellationToken cancellationToken)
     {
-        await _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync(cancellationToken);
     }
 
     public async Task UpdateAsync(DepartmentEntity entity, CancellationToken cancellationToken)
