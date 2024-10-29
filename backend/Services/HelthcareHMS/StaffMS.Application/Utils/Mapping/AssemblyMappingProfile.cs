@@ -5,6 +5,7 @@ namespace StaffMS.Application.Utils.Mapping;
 
 public class AssemblyMappingProfile : Profile
 {
+    public AssemblyMappingProfile(){}
     public AssemblyMappingProfile(Assembly assembly) =>
         ApplyMappingFromAssembly(assembly);
 

@@ -5,6 +5,7 @@ using StaffMS.Application.Utils.Mapping;
 using StaffMS.Persistence;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using StaffMS.API.Middleware;
 
 namespace StaffMS.API
 {
@@ -19,10 +20,11 @@ namespace StaffMS.API
 
             builder.Services.AddControllers();
 
-            builder.Services.AddAutoMapper(
-                Assembly.GetExecutingAssembly(),
-                typeof(IStaffMSDbContext).Assembly
-            );
+            builder.Services.AddAutoMapper(config => // adding automapper to program
+            {
+                config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+                config.AddProfile(new AssemblyMappingProfile(typeof(IStaffMSDbContext).Assembly));
+            });
 
             builder.Services.AddCors(options =>
             {
@@ -73,6 +75,7 @@ namespace StaffMS.API
                 app.UseSwaggerUI();
             }
 
+            app.UseCustomExceptionHandler();
             app.UseCors("AllowAll");
             app.UseAuthorization();
             app.UseAuthorization();

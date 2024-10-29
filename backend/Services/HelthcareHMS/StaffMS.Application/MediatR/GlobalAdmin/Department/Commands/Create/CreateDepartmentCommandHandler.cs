@@ -18,8 +18,10 @@ public class CreateDepartmentCommandHandler : IRequestHandler<CreateDepartmentCo
         var newDepartment = new DepartmentEntity
         {
             Id = Guid.NewGuid(),
+            GlobalAdminId = request.GAId,
             DepartmentName = request.DepartmentName,
             Email = request.Email,
+            Address = request.Address
         };
         
         await _departmentRepository.AddAsync(newDepartment);

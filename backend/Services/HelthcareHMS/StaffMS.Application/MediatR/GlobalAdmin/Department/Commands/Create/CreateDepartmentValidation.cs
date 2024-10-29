@@ -15,6 +15,10 @@ public class CreateDepartmentValidation : AbstractValidator<CreateDepartmentComm
             .NotEmpty().WithMessage("Email is required")
             .MaximumLength(100).WithMessage("Email must not exceed 100 characters");
         RuleFor(x =>
+            x.Address)
+            .NotEmpty().WithMessage("Address cannot be empty")
+            .MaximumLength(500).WithMessage("Address must not exceed 500 characters");
+        RuleFor(x =>
                 x.GAId)
             .NotEqual(Guid.Empty).WithMessage("User not authorised");
     }
