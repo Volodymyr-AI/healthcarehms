@@ -1,5 +1,8 @@
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using StaffMS.WebAPI.Infrastructure;
+using SQLitePCL;
 
 namespace StaffMS.WebAPI
 {
@@ -8,9 +11,11 @@ namespace StaffMS.WebAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            var connectionString = builder.Configuration.GetConnectionString("StaffMSConnection");
             // Add services to the container.
 
+            builder.Services.AddDbContext<StaffMSDbContext>(options => 
+                options.UseSqlite(connectionString));
             builder.Services.AddControllers();
             builder.Services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
