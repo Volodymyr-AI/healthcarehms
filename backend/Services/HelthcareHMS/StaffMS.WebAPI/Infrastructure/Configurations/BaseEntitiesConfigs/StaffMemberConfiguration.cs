@@ -13,7 +13,6 @@ public class StaffMemberConfiguration: IEntityTypeConfiguration<StaffMemberEntit
 
         // Основні властивості
         builder.Property(s => s.StaffName)
-            .IsRequired()
             .HasMaxLength(100);
 
         builder.Property(s => s.Specialization)
@@ -22,8 +21,8 @@ public class StaffMemberConfiguration: IEntityTypeConfiguration<StaffMemberEntit
         builder.Property(s => s.Bio)
             .HasMaxLength(500); // Максимальна довжина для біографії
 
-        builder.Property(s => s.YearsOfExperience)
-            .IsRequired();
+        //builder.Property(s => s.YearsOfExperience)
+        //    .IsRequired();
 
         builder.Property(s => s.School)
             .HasMaxLength(100);

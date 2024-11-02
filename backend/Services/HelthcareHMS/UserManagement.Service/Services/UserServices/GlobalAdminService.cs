@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using UserManagement.Service.Domain;
 using UserManagement.Service.Infrastructure;
 
@@ -30,5 +31,49 @@ public class GlobalAdminService
         await _context.SaveChangesAsync();
         
         return globalAdmin;
+    }
+    public async Task<GlobalAdmin?> GetGlobalAdminByIdAsync(Guid id)
+    {
+        return await _context.Users.OfType<GlobalAdmin>().FirstOrDefaultAsync(ga => ga.UserId == id);
+    }
+
+    public async Task<List<GlobalAdmin>> GetAllGlobalAdmin()
+    {
+        return await _context.Users.OfType<GlobalAdmin>().OrderBy(ga => ga.UserId).ToListAsync();
+    }
+
+    public async Task<GlobalAdmin?> GetGlobalAdminByEmailAsync(string email)
+    {
+        return await _context.Users.OfType<GlobalAdmin>().FirstOrDefaultAsync(ga => ga.Email == email);
+    }
+
+    public async Task<bool> UpdateGlobalAdminEmailAsync(Guid id, string newEmail)
+    {
+        var globalAdmin = await GetGlobalAdminByIdAsync(id);
+        if (globalAdmin == null) return false;
+
+        globalAdmin.Email = newEmail;
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> UpdateGlobalAdminPasswordAsync(Guid id, string newPassword)
+    {
+        var globalAdmin = await GetGlobalAdminByIdAsync(id);
+        if (globalAdmin == null) return false;
+
+        globalAdmin.HashedPassword = _passwordHasher.HashPassword(globalAdmin, newPassword);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> DeleteGlobalAdminAsync(Guid id)
+    {
+        var globalAdmin = await GetGlobalAdminByIdAsync(id);
+        if (globalAdmin == null) return false;
+
+        _context.Users.Remove(globalAdmin);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

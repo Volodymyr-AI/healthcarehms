@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using UserManagement.Service.Domain;
 using UserManagement.Service.Infrastructure;
 
@@ -30,5 +31,40 @@ public class StaffMemberService
         await _context.SaveChangesAsync();
         
         return staffMember;
+    }
+    
+    public async Task<StaffMember?> GetStaffMemberByIdAsync(Guid id)
+    {
+        return await _context.Users.OfType<StaffMember>().FirstOrDefaultAsync(sm => sm.UserId == id);
+    }
+    
+    public async Task<bool> UpdateStaffMemberEmailAsync(Guid id, string newEmail)
+    {
+        var staffMember = await GetStaffMemberByIdAsync(id);
+        if (staffMember == null) return false;
+
+        staffMember.Email = newEmail;
+        await _context.SaveChangesAsync();
+        return true;
+    }
+    
+    public async Task<bool> UpdateStaffMemberPasswordAsync(Guid id, string newPassword)
+    {
+        var staffMember = await GetStaffMemberByIdAsync(id);
+        if (staffMember == null) return false;
+
+        staffMember.HashedPassword = _passwordHasher.HashPassword(staffMember, newPassword);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+    
+    public async Task<bool> DeleteStaffMemberAsync(Guid id)
+    {
+        var staffMember = await GetStaffMemberByIdAsync(id);
+        if (staffMember == null) return false;
+
+        _context.Users.Remove(staffMember);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

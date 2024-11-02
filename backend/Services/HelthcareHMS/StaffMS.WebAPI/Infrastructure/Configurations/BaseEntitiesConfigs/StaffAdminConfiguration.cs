@@ -13,7 +13,6 @@ public class StaffAdminConfiguration: IEntityTypeConfiguration<StaffAdminEntity>
 
         // Основні властивості
         builder.Property(s => s.AdminName)
-            .IsRequired()
             .HasMaxLength(100); // Максимальна довжина для імені адміністратора
 
         // Зв’язок з DepartmentEntity

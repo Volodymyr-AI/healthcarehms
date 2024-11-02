@@ -13,11 +13,9 @@ public class GlobalAdminConfiguration: IEntityTypeConfiguration<GlobalAdminEntit
 
         // Встановлення полів
         builder.Property(g => g.Name)
-            .IsRequired()
             .HasMaxLength(100); // Наприклад, обмеження довжини імені
 
         builder.Property(g => g.Phone)
-            .IsRequired()
             .HasMaxLength(15); // Можливе обмеження для номеру телефону
 
         // Додаткові конфігурації за необхідності

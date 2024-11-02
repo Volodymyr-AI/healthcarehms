@@ -8,6 +8,7 @@ namespace StaffMS.WebAPI.Infrastructure;
 
 public class StaffMSDbContext : DbContext
 {
+    public DbSet<GlobalAdminEntity> GlobalAdmins { get; set; }
     public DbSet<StaffMemberEntity> StaffMembers { get; set; }
     public DbSet<DepartmentEntity> Departments { get; set; }
     public DbSet<StaffAdminEntity> StaffAdmins { get; set; }
