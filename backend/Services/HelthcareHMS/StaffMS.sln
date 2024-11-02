@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserManagement", "UserManag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Service", "UserManagement.Service\UserManagement.Service.csproj", "{AC1832BF-CB1D-4365-A08C-7FB31D932D16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffMS.WebAPI", "StaffMS.WebAPI\StaffMS.WebAPI.csproj", "{98B15CBB-14DE-44A3-9C67-716782B2D1EF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{AC1832BF-CB1D-4365-A08C-7FB31D932D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC1832BF-CB1D-4365-A08C-7FB31D932D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC1832BF-CB1D-4365-A08C-7FB31D932D16}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98B15CBB-14DE-44A3-9C67-716782B2D1EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98B15CBB-14DE-44A3-9C67-716782B2D1EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98B15CBB-14DE-44A3-9C67-716782B2D1EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98B15CBB-14DE-44A3-9C67-716782B2D1EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,7 +29,6 @@ Global
 		{2502F794-B2F0-4B44-97B4-63B9AC3417AB} = {DED0D680-2F4D-4D5C-8101-3ACE4582811E}
 		{27C4D402-5F8D-4DD0-B19B-068DF7906616} = {DED0D680-2F4D-4D5C-8101-3ACE4582811E}
 		{AC1832BF-CB1D-4365-A08C-7FB31D932D16} = {27C4D402-5F8D-4DD0-B19B-068DF7906616}
-		{98B15CBB-14DE-44A3-9C67-716782B2D1EF} = {2502F794-B2F0-4B44-97B4-63B9AC3417AB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A9F9638-1F0A-4543-A6B6-801819150226}
