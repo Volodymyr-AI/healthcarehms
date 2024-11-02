@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{DED0D680-2F4D-4D5C-8101-3ACE4582811E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StaffMS", "StaffMS", "{2502F794-B2F0-4B44-97B4-63B9AC3417AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserManagement", "UserManagement", "{27C4D402-5F8D-4DD0-B19B-068DF7906616}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Service", "UserManagement.Service\UserManagement.Service.csproj", "{AC1832BF-CB1D-4365-A08C-7FB31D932D16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC1832BF-CB1D-4365-A08C-7FB31D932D16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1832BF-CB1D-4365-A08C-7FB31D932D16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1832BF-CB1D-4365-A08C-7FB31D932D16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1832BF-CB1D-4365-A08C-7FB31D932D16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2502F794-B2F0-4B44-97B4-63B9AC3417AB} = {DED0D680-2F4D-4D5C-8101-3ACE4582811E}
+		{27C4D402-5F8D-4DD0-B19B-068DF7906616} = {DED0D680-2F4D-4D5C-8101-3ACE4582811E}
+		{AC1832BF-CB1D-4365-A08C-7FB31D932D16} = {27C4D402-5F8D-4DD0-B19B-068DF7906616}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A9F9638-1F0A-4543-A6B6-801819150226}
+	EndGlobalSection
+EndGlobal
