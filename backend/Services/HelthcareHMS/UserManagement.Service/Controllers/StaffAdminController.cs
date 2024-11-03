@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using UserManagement.Service.Domain;
 using UserManagement.Service.DTOs;
 using UserManagement.Service.Services.AuthServices;
 using UserManagement.Service.Services.UserServices;
@@ -35,6 +36,14 @@ public class StaffAdminController : ControllerBase
         var token = await _loginService.LoginStaffAdminAsync(request.Email, request.Password);
         return Ok(new { Token = token });
     }
+    
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<List<StaffAdmin>>> GetAll()
+    {
+        return await _staffAdminService.GetAllStaffAdminsAsync();
+    }
+    
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> GetById(Guid id)

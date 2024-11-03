@@ -33,6 +33,21 @@ public class StaffAdminService
         
         return staffAdmin;
     }
+    
+    public async Task<List<StaffAdmin>> GetAllStaffAdminsAsync()
+    {
+        return await _context.Users
+            .OfType<StaffAdmin>()
+            .OrderBy(ga => ga.UserId)
+            .Select(ga => new StaffAdmin
+            {
+                UserId = ga.UserId,
+                Email = ga.Email,
+                Login = ga.Login,
+                Role = ga.Role
+            })
+            .ToListAsync();
+    }
 
     public async Task<StaffAdmin?> GetStaffAdminByIdAsync(Guid id)
     {

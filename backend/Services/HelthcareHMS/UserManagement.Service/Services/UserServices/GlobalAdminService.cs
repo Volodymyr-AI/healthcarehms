@@ -39,7 +39,17 @@ public class GlobalAdminService
 
     public async Task<List<GlobalAdmin>> GetAllGlobalAdmin()
     {
-        return await _context.Users.OfType<GlobalAdmin>().OrderBy(ga => ga.UserId).ToListAsync();
+        return await _context.Users
+                .OfType<GlobalAdmin>()
+                .OrderBy(ga => ga.UserId)
+                .Select(ga => new GlobalAdmin
+                {
+                    UserId = ga.UserId,
+                    Email = ga.Email,
+                    Login = ga.Login,
+                    Role = ga.Role
+                })
+                .ToListAsync();
     }
 
     public async Task<GlobalAdmin?> GetGlobalAdminByEmailAsync(string email)

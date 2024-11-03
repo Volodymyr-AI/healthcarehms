@@ -33,6 +33,21 @@ public class StaffMemberService
         return staffMember;
     }
     
+    public async Task<List<StaffMember>> GetAllStaffMembersAsync()
+    {
+        return await _context.Users
+            .OfType<StaffMember>()
+            .OrderBy(ga => ga.UserId)
+            .Select(ga => new StaffMember
+            {
+                UserId = ga.UserId,
+                Email = ga.Email,
+                Login = ga.Login,
+                Role = ga.Role
+            })
+            .ToListAsync();
+    }
+    
     public async Task<StaffMember?> GetStaffMemberByIdAsync(Guid id)
     {
         return await _context.Users.OfType<StaffMember>().FirstOrDefaultAsync(sm => sm.UserId == id);
